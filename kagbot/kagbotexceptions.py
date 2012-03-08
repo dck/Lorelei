@@ -22,8 +22,6 @@ class LineUpIsFullError(Error):
 
 
 
-
-
 if __name__ == "__main__":
 	try:
 		raise PlayerAlreadyExistError()
