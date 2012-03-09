@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #If you want to add new exception inherit from Error class
 #and redefine msg attribute
 

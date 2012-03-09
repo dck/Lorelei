@@ -3,7 +3,7 @@
 
 from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError
 
-class LineUp:
+class LineUp(object):
 	def __init__ (self, size):
 		self.__plist = []
 		self.__size = size

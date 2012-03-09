@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from twisted.words.protocols import irc
 from lineup import LineUp
 import sys
@@ -38,7 +40,7 @@ class KagBot(irc.IRCClient):
         # Otherwise check to see if it is a message directed at me
         if msg == "!on":
             self.lineup = LineUp(6)
-            self.msg(channel, self.lineup.get_list())
+            self.msg(channel, "привет")
 
     def action(self, user, channel, msg):
         """This will get called when the bot sees someone do an action."""
