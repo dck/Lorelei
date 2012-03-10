@@ -23,7 +23,7 @@ class LineUp(object):
 		else:
 			return False
 	
-	def shuffle (self, isBalance=False):
+	def shuffle (self):
 		pass
 	def get_list (self):
 		return self.__plist

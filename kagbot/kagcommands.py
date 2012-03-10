@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError
 
 class Command(object):
 	def execute(self):
 		raise NotImplementedError()
 	
 class AddCommand(Command):
-	def __init__ (self):
-		pass
-	def execute(self, context):
+	def execute(self, context, *args):
 		pass
 
 
