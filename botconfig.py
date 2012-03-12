@@ -30,7 +30,9 @@ config["modes"] = [
 			"voiced": False,
 			"maxplayers": 10,
 			"create": "!on",
-			"add": "!add"
+			"add": "!add",
+			"color1": 4,
+			"color2": 5
 		},
 		{
 			"name": "Gold",
@@ -38,7 +40,9 @@ config["modes"] = [
 			"voided": True,
 			"maxplayers": 10,
 			"create": "!on+",
-			"add": "!add+"
+			"add": "!add+",
+			"color1": 5,
+			"color2": 7
 		},
 		{
 			"name": "Sub",
@@ -46,7 +50,9 @@ config["modes"] = [
 			"Voiced": False,
 			"maxplayers": 1,
 			"create": "!sub",
-			"add": "!sadd"
+			"add": "!sadd",
+			"color1": 9,
+			"color2": 1
 		},
 		{
 			"name": "GoldSub",
@@ -54,7 +60,9 @@ config["modes"] = [
 			"Voiced": True,
 			"maxplayers": 1,
 			"create": "!sub+",
-			"add": "!sadd+"
+			"add": "!sadd+",
+			"color1": 6,
+			"color2": 4
 		}
 	]
 

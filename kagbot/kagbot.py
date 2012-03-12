@@ -13,6 +13,10 @@ class KagBot(irc.IRCClient):
         self.realname = self.config["realname"]
         self.serverpass = self.config["serverpass"]
         self.users = {}
+        self.modes = []
+        for mode in self.config["modes"]:
+            self.modes.append(LineUp(mode))
+            
 
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)
