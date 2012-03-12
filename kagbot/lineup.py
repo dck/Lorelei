@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError,
-									MixIsAlreadyUp
+from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError, MixIsAlreadyUp
 
 class LineUp(object):
 	def __init__ (self, mode):
@@ -24,6 +23,7 @@ class LineUp(object):
 			return True
 		else:
 			return False
+
 	def get_on_command(self):
 		return self.__mode["create"]
 
@@ -43,13 +43,13 @@ class LineUp(object):
 		if self.__isRun:
 			self.__isRun = False
 			self.__plist = []
-			
+
 	def get_status(self):
-		str = "[ "
-		str += " - ".join(self.__plist)
-		str += " - x" * (self.__mode["maxplayers"] - self.__plist)
-		str += " ]"
-		return str
+		s = "[ "
+		s += " - ".join(self.__plist)
+		s += " - x" * (self.__mode["maxplayers"] - len(self.__plist))
+		s += " ]"
+		return s
 
 
 	def shuffle (self):

@@ -2,6 +2,7 @@
 
 from twisted.words.protocols import irc
 from lineup import LineUp
+from kagcommands import *
 import sys
 
 class KagBot(irc.IRCClient):
@@ -13,10 +14,11 @@ class KagBot(irc.IRCClient):
         self.realname = self.config["realname"]
         self.serverpass = self.config["serverpass"]
         self.users = {}
-        self.modes = []
+        self.lineups = []
         for mode in self.config["modes"]:
-            self.modes.append(LineUp(mode))
-            
+            self.lineups.append(LineUp(mode))
+            commands[mode["create"]] = OnCommand()
+            commands[mode["add"]] = AddCommand()
 
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)
@@ -42,14 +44,13 @@ class KagBot(irc.IRCClient):
 
     def privmsg(self, user, channel, msg):
         """This will get called when the bot receives a message."""
-        sys.stdout.write(user);
         user = user.split('!', 1)[0]
         words = msg.split()
 
         if channel == self.nickname:
-            self.__handlePrivMsg(self, user, words[0], words[1:])
+            self.__handlePrivMsg(user, words)
         else:
-            self.__handleChanMsg(self, user, words[0], words[1:])
+            self.__handleChanMsg(channel, user, words)
 
     def action(self, user, channel, msg):
         """This will get called when the bot sees someone do an action."""
@@ -66,10 +67,13 @@ class KagBot(irc.IRCClient):
     def alterCollidedNick(self, nickname):
         """The nick is in use"""
         return self.nickname + '`'
-
-    def __handleChanMsg(self, nick, msg, *args):
-
-        pass
     
-    def __handlePrivMsg(self, nick, msg, *args):
+    def __handlePrivMsg(self, nick, args):
         pass
+
+    def __handleChanMsg(self, channel, nick, args):
+        try:
+            cmd = commands[args[0]]
+            cmd.execute(self, channel, nick, args)
+        except KeyError:
+            pass
