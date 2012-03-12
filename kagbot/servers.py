@@ -1,8 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+class Server(object):
+	def connect(self):
+		raise NotImplementedError()
+	
+	def disconnect(self):
+		raise NotImplementedError()
+	
+	def is_free(self):
+		raise NotImplementedError()
 
-class KagServer(object):
+	def get_info(self):
+		raise NotImplementedError()
+
+
+
+class KagServer(Server):
 	def __init__(self, settings):
 		self.__s = settings
 	
