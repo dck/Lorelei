@@ -28,24 +28,33 @@ config["modes"] = [
 			"name": "Normal",
 			"authed": False,
 			"voiced": False,
-			"maxplayers": 10 
+			"maxplayers": 10,
+			"create": "!on",
+			"add": "!add"
 		},
 		{
 			"name": "Gold",
 			"authed": False,
 			"voided": True,
-			"maxplayers": 10 
+			"maxplayers": 10,
+			"create": "!on+",
+			"add": "!add+"
 		},
 		{
 			"name": "Sub",
 			"authed": False,
 			"Voiced": False,
-			"maxplayers": 1
+			"maxplayers": 1,
+			"create": "!sub",
+			"add": "!sadd"
 		},
 		{
 			"name": "GoldSub",
 			"authed": False,
-			"maxplayers": 1
+			"Voiced": True,
+			"maxplayers": 1,
+			"create": "!sub+",
+			"add": "!sadd+"
 		}
 	]
 

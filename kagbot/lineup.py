@@ -29,6 +29,7 @@ class LineUp(object):
 		return self.__plist
 
 
+
 if __name__ == "__main__":
     la = LineUp(6)
     try:
