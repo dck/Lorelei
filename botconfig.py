@@ -4,7 +4,7 @@
 config = {}
 
 # global configuration 
-config["nickname"] = "KAGGatherBot"
+config["nickname"] = "Lorelei"
 config["servername"] = "irc.quakenet.org"
 config["serverport"] = 6667
 config["serverpass"] = None

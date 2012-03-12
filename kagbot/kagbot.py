@@ -66,7 +66,7 @@ class KagBot(irc.IRCClient):
 
     def alterCollidedNick(self, nickname):
         """The nick is in use"""
-        return self.nickname + '`'
+        return "|" + self.nickname + '|'
 
     def userIsVoiced(self, nick):
         #TODO: implement this
