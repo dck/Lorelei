@@ -22,13 +22,14 @@ class LineUpIsFullError(Error):
 	def __str__ (self):
 		return self.msg
 
-class MixIsAlreadyUp(Error):
+class MixIsntUp(Error):
 
 	def __init__ (self):
-			self.msg = "Mix is already created"
+			self.msg = "Mix isn't up. Use !on to create"
 	
 	def __str__ (self):
 		return self.msg
+
 
 if __name__ == "__main__":
 	try:

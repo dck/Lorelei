@@ -28,42 +28,45 @@ config["modes"] = [
 			"name": "Normal",
 			"authed": False,
 			"voiced": False,
-			"maxplayers": 10,
+			"maxplayers": 5,
 			"create": "!on",
 			"add": "!add",
+			"off": "!off",
 			"color1": 4,
 			"color2": 5
 		},
 		{
 			"name": "Gold",
 			"authed": False,
-			"voided": True,
-			"maxplayers": 10,
+			"voiced": True,
+			"maxplayers": 4,
 			"create": "!on+",
 			"add": "!add+",
+			"off": "!off+",
 			"color1": 5,
 			"color2": 7
-		},
-		{
-			"name": "Sub",
-			"authed": False,
-			"Voiced": False,
-			"maxplayers": 1,
-			"create": "!sub",
-			"add": "!sadd",
-			"color1": 9,
-			"color2": 1
-		},
-		{
-			"name": "GoldSub",
-			"authed": False,
-			"Voiced": True,
-			"maxplayers": 1,
-			"create": "!sub+",
-			"add": "!sadd+",
-			"color1": 6,
-			"color2": 4
-		}
+			}
+#		},
+#		{
+#			"name": "Sub",
+#			"authed": False,
+#			"voiced": False,
+#			"maxplayers": 1,
+#			"create": "!sub",
+#			"add": "!sadd",
+#			"color1": 9,
+#			"color2": 1
+#		},
+#		{
+#			"name": "GoldSub",
+#			"authed": False,
+#			"voiced": True,
+#			"maxplayers": 1,
+#			"create": "!sub+",
+#			"add": "!sadd+",
+#			"color1": 6,
+#			"color2": 4
+#		}
 	]
 
 if __name__ == "__main__":

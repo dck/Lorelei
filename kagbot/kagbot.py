@@ -19,6 +19,7 @@ class KagBot(irc.IRCClient):
             self.lineups.append(LineUp(mode))
             commands[mode["create"]] = OnCommand()
             commands[mode["add"]] = AddCommand()
+            commands[mode["off"]] = OffCommand()
 
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)
@@ -63,10 +64,21 @@ class KagBot(irc.IRCClient):
         old_nick = prefix.split('!')[0]
         new_nick = params[0]
 
-
     def alterCollidedNick(self, nickname):
         """The nick is in use"""
         return self.nickname + '`'
+
+    def userIsVoiced(self, nick):
+        #TODO: implement this
+        return True
+    
+    def userIsOpped(self, nick):
+        #TODO: implements this shit
+        return True
+    
+    def userIsAuthed(self, nick):
+        #TODO: implement this
+        return True
     
     def __handlePrivMsg(self, nick, args):
         pass
