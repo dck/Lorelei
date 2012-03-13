@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError
+from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError, UserInOtherLineUp
 
 class Command(object):
 	def execute(self):
@@ -9,6 +9,9 @@ class Command(object):
 	
 class OnCommand(Command):
 	def execute(self, context, channel, nick, args):
+		inMix = filter(lambda x: x.has_player(nick),context.lineups)
+		if inMix:
+			raise UserInOtherLineUp()
 		for lineup in context.lineups:
 			if lineup.get_on_command() == args[0]:
 				try:

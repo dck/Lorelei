@@ -30,6 +30,14 @@ class MixIsntUp(Error):
 	def __str__ (self):
 		return self.msg
 
+class UserInOtherLineUp(Error):
+
+	def __init__ (self):
+			self.msg = "You are in other line up"
+	
+	def __str__ (self):
+		return self.msg
+
 
 if __name__ == "__main__":
 	try:

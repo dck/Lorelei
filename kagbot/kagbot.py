@@ -3,6 +3,7 @@
 from twisted.words.protocols import irc
 from lineup import LineUp
 from kagcommands import *
+from kagbotexceptions import Error
 import sys
 
 class KagBot(irc.IRCClient):
@@ -89,3 +90,5 @@ class KagBot(irc.IRCClient):
             cmd.execute(self, channel, nick, args)
         except KeyError:
             pass
+        except Error as e:
+            self.msg(channel, nick + ", " + e.msg)

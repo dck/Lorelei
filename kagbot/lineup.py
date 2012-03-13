@@ -50,6 +50,9 @@ class LineUp(object):
 
 	def is_run(self):
 		return self.__isRun
+	
+	def has_player(self, player):
+		return player in self.__plist
 
 	def turn_off(self):
 		if self.__isRun:
