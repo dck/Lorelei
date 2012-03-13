@@ -91,4 +91,6 @@ class KagBot(irc.IRCClient):
         except KeyError:
             pass
         except Error as e:
-            self.msg(channel, nick + ", " + e.msg)
+            message = "\002\003" + str(self.config["color1"]) + nick + "\003\002\003" + str(self.config["color2"])
+            message += ", " + e.msg
+            self.msg(channel, message)

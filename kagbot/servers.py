@@ -34,7 +34,7 @@ class KagServer(Server):
 		return True
 
 	def get_info(self):
-		return "Some info"
+		return "[Mock] Some info"
 
 if __name__ == "__main__":
 	pass

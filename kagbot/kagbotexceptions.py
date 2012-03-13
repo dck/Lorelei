@@ -38,6 +38,14 @@ class UserInOtherLineUp(Error):
 	def __str__ (self):
 		return self.msg
 
+class MixTurnedOff(Error):
+
+	def __init__ (self):
+			self.msg = "Mix is turned off"
+	
+	def __str__ (self):
+		return self.msg
+
 
 if __name__ == "__main__":
 	try:

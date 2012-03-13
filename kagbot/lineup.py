@@ -60,10 +60,14 @@ class LineUp(object):
 			self.__plist = []
 
 	def get_status(self):
-		s = "[ "
-		s += " - ".join(self.__plist)
-		s += " - x" * (self.__numbers - len(self.__plist))
-		s += " ]"
+		c1 = str(self.__settings["color1"])
+		c2 = str(self.__settings["color2"])
+		s = "\003" + c1 + "\002[\002 " + "\003" + c2
+		tmpstr = "\003" + c1 + " - " + "\003" + c2
+		s += tmpstr.join(self.__plist)
+		tmpstr += "x"
+		s += tmpstr * (self.__numbers - len(self.__plist))
+		s += "\003" + c1 + "\002 ]\002" + "\003"
 		return s
 
 	def get_max(self):

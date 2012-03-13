@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError, UserInOtherLineUp
+from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError, UserInOtherLineUp, MixTurnedOff
 
 class Command(object):
 	def execute(self):
@@ -23,7 +23,7 @@ class OnCommand(Command):
 						lineup.add(nick)
 					context.msg(channel, lineup.get_status())
 				except Error as e:
-					context.msg(channel, nick + ", " + e.msg)
+					raise e
 		
 			
 class AddCommand(Command):
@@ -38,7 +38,7 @@ class AddCommand(Command):
 					lineup.add(nick)
 					context.msg(channel, lineup.get_status())
 				except Error as e:
-					context.msg(channel, nick + ", " + e.msg)
+					raise e
 
 
 class StatusCommand(Command):
@@ -58,7 +58,7 @@ class DelCommand(Command):
 				if lineup.is_run():
 					if lineup.delete(nick):
 						if not lineup.is_run():
-							context.msg(channel, "[ Mix is gone ]") #please, rewrite this
+							raise MixTurnedOff()
 						else:
 							context.msg(channel, lineup.get_status())
 						break
@@ -72,7 +72,7 @@ class OffCommand(Command):
 			if lineup.get_off_command() == args[0]:
 				if lineup.is_run():
 					lineup.turn_off()
-					context.msg(channel, "[ Mix is offed ]")
+					raise MixTurnedOff()
 
 commands = {}
 commands["!status"] = StatusCommand()

@@ -11,6 +11,8 @@ config["serverpass"] = None
 config["realname"] = "Gather Bot"
 config["username"] = "kgb"
 config["channels"] = ["#kag2d.ru"]
+config["color1"] = 8
+config["color2"] = 6
 
 # server configuration
 config["servers"] = [
@@ -32,8 +34,8 @@ config["modes"] = [
 			"create": "!on",
 			"add": "!add",
 			"off": "!off",
-			"color1": 4,
-			"color2": 5
+			"color1": 7,
+			"color2": 3
 		},
 		{
 			"name": "Gold",
@@ -43,8 +45,8 @@ config["modes"] = [
 			"create": "!on+",
 			"add": "!add+",
 			"off": "!off+",
-			"color1": 5,
-			"color2": 7
+			"color1": 3,
+			"color2": 4
 			}
 #		},
 #		{
