@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from kagbotexceptions import Error, PlayerAlreadyExistError, LineUpIsFullError, MixIsntUp
-
+from random import shuffle
 class LineUp(object):
 	def __init__ (self, settings):
 		self.__plist = []
@@ -74,7 +74,7 @@ class LineUp(object):
 		return self.__settings["maxplayers"]
 
 	def shuffle (self):
-		pass
+		shuffle(self.__plist)
 
 	def get_list (self):
 		return self.__plist
@@ -84,6 +84,12 @@ class LineUp(object):
 			return True
 		else:
 			return False
+	
+	def is_full(self):
+		return self.__numbers == len(self.__plist)
+
+	def get_servers(self):
+		return self.__settings["servers"]
 
 
 

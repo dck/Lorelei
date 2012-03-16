@@ -27,14 +27,20 @@ class KagServer(Server):
 		pass
 
 	def get_clicker(self):
-		s = "kag://" + self.__s["ip"] + ":" + self.__s["port"] + "/" + self.__s["password"]
+		s = "kag://{ip}:{port:d}/{password}".format(**self.__s)
 		return s
 	
+	def is_avaiable(self):
+		return True
+		
 	def is_free(self):
 		return True
 
 	def get_info(self):
 		return "[Mock] Some info"
+
+	def get_name(self):
+		return self.__s["name"]
 
 if __name__ == "__main__":
 	pass

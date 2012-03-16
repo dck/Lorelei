@@ -4,6 +4,7 @@ from twisted.words.protocols import irc
 from lineup import LineUp
 from kagcommands import *
 from kagbotexceptions import Error
+from servers import KagServer
 import sys
 
 class KagBot(irc.IRCClient):
@@ -16,11 +17,15 @@ class KagBot(irc.IRCClient):
         self.serverpass = self.config["serverpass"]
         self.users = {}
         self.lineups = []
+        self.servers = []
         for mode in self.config["modes"]:
             self.lineups.append(LineUp(mode))
             commands[mode["create"]] = OnCommand()
             commands[mode["add"]] = AddCommand()
             commands[mode["off"]] = OffCommand()
+        for server in self.config["servers"]:
+            self.servers.append(KagServer(server))
+            commands[server["trigger"]] = ServerInfoCommand()
 
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)

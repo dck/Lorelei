@@ -35,7 +35,9 @@ config["modes"] = [
 			"add": "!add",
 			"off": "!off",
 			"color1": 7,
-			"color2": 3
+			"color2": 3,
+			"balance": True,
+			"servers": ["Baal"]
 		},
 		{
 			"name": "Gold",
@@ -46,7 +48,9 @@ config["modes"] = [
 			"add": "!add+",
 			"off": "!off+",
 			"color1": 3,
-			"color2": 4
+			"color2": 4,
+			"balance": False,
+			"servers": ["Baal"]
 			}
 #		},
 #		{
